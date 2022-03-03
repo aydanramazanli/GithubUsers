@@ -46,7 +46,7 @@ export default function Info() {
 
 
   return (
-    <section className='container   m-auto px-20'>
+    <section className='container  m-auto px-20'>
       <div className='flex justify-between w-full items-center '>
         {items.map((item) => {
           return <Item key={shortid()} {...item}></Item>;
