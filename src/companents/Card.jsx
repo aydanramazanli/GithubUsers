@@ -15,13 +15,15 @@ export default function Card() {
     twitter_username,
   } = githubUser;
 
-  console.log(blog);
+
 
   return (
-    <div className="w-1/2 bg-white my-14 p-10 rounded mx-5">
+    <div className="w-1/2  bg-white  p-6 rounded mx-5 relative">
+      <div className="user absolute bg-white user left-0 py-2 px-4 rounded"  >
+        <h3 className="text-slate-500 font-light">User</h3></div>
       <header className="flex justify-between items-center">
         <div className="flex items-center">
-          <img src={avatar_url} alt={name} className="w-24 h-24 rounded-3xl" />
+          <img src={avatar_url} alt={name} className="w-20 h-20 rounded-3xl" />
           <div className="mx-5">
             <h4 className="font-semibold">{name}</h4>
             <h4 className="text-slate-500">@{twitter_username || "twitter username"}</h4>
@@ -45,5 +47,4 @@ export default function Card() {
         </a>
       </main>
     </div>
-  );
-}
+  )}
