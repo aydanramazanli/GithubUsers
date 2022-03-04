@@ -29,7 +29,7 @@ export default function Card() {
             <h4 className="text-slate-500">@{twitter_username || "twitter username"}</h4>
           </div>
         </div>
-        <div className="follow rounded-2xl border-cyan-400 text-cyan-400 hover:text-white border-2 hover:border-white px-3 py-1 bg-transparent hover:bg-cyan-400 duration-300">
+        <div className="follow rounded-2xl border-cyan-400 text-cyan-400 hover:text-white border-2  px-3 py-1 bg-transparent hover:bg-cyan-400 duration-300">
           <a href={html_url} >Follow</a>
         </div>
       </header>

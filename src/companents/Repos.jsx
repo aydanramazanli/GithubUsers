@@ -5,7 +5,30 @@ import Pie from './charts/Pie'
 
 export default function Repos() {
 const {repos}= useContext(GithubContext)
-console.log(repos)
+
+let languages =repos.reduce((total, item)=>{
+  const {language} = item
+ if(!language) return total
+ if(!total[language]){
+    total[language] ={label:language, value:1}
+  }
+  else{
+    total[language]={...total[language],value:total[language].value+1}
+  }
+  return total
+},{})
+
+languages = Object.values(languages).sort((a,b)=>{
+  return b.value-a.value
+}).slice(0,5)
+
+
+
+console.log(languages)
+
+
+
+
   const chartData = [
     {
       label: "Html",
@@ -24,7 +47,7 @@ console.log(repos)
   return (
     <div className=" content   relative ">
       <div className="my-10 flex items-center justify-between">
-      <Pie data ={chartData}/>
+      <Pie data ={languages}/>
       <Charts  data ={chartData}/>
       </div>
       <div className="my-10 flex items-center justify-between">
