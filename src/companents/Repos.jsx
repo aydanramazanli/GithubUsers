@@ -40,7 +40,7 @@ const mostPopular = Object.values(languages)
 })
 .slice(0, 5)
 
- console.log(repos)
+
 
 let { stars, forks } = repos.reduce(
   (total, item) => {

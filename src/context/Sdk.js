@@ -12,9 +12,9 @@ class SDK{
     }
 
 
-    async getUser(){
+    async getUser(name){
         try{
-            const req = await this.instance.get(`/users/aydansamedova`)
+            const req = await this.instance.get(`/users/${name}`)
             return req.data
         }
         catch(error){
@@ -41,6 +41,8 @@ class SDK{
             console.log(error)
         }
     }
+
+
 
 
 }
