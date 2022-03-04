@@ -3,7 +3,7 @@ import { GithubContext } from '../context/Context'
 import SDK from '../context/Sdk'
 
 export default function Search() {
-  const {request} = useContext(GithubContext)
+  const {request, err} = useContext(GithubContext)
   console.log(request)
 const sdk = new SDK()
   const inputRef=useRef(null)
@@ -19,8 +19,13 @@ const sdk = new SDK()
   }
 
   return (
-    <div className="content">
+    <div className="content flex  ">
     <div className="mb-10 w-3/4 ">
+      {err.show&& (
+        <div>
+          <p className="text-center text-red-600 text-lg py-2 font-semibold">{err. msg}</p>
+        </div>
+      )}
       <form action="" onSubmit={submit} className="flex pr-5 items-center justify-between w-full">
         <div className="flex bg-white px-3 py-1.5  justify-between rounded w-full">
           <input ref={inputRef} type="text"  placeholder="enter username" className="border-none outline-none"/>
@@ -28,9 +33,10 @@ const sdk = new SDK()
         
         </div>
       
-        <h3>Requests: {request}/80</h3>
+       
         </form>
     </div>
+    <h3 className="w-1/4 text-slate-500 text-2xl py-3">Requests: {request}/80</h3>
     </div>
   )
 }

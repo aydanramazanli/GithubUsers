@@ -11,26 +11,28 @@ import { data } from "autoprefixer";
 const GithubContext = createContext();
 
 const GithubProvider = ({ children }) => {
+  const sdk = new SDK()
   const [githubUser, setgithubUser] = useState(UserData);
   const [githubfFollowers, setgithubfFollowers] = useState(FollowersData);
   const [repos, setRepos] = useState(ReposData);
   const [request, setRequest] = useState();
   const [loading, setLoading] = useState();
-  const sdk = new SDK()
+  const [err,setErr]=useState({show:false, msg:""})
+  
 
 
 const req=()=>{
   axios('https://api.github.com/rate_limit').then(({data})=>
   {let {rate:{remaining},} =data
+  // remaining=0
   setRequest(remaining)
   if(remaining===0){
-    ///
+    toggleErr(true, "sorry you exceeded your rate limit !")
   }
 }
   )
   .catch((err)=>console.log(err))
 }
-
 useEffect(req,[])
 
 
@@ -45,8 +47,6 @@ useEffect(req,[])
   }, [])
 
  
-
-
 useEffect(() => {
   const followers =async()=>{
     const follow = await sdk.getUser()
@@ -66,10 +66,12 @@ useEffect(() => {
 
 },[])
 
+function toggleErr(show =false,msg =''){
+  setErr({show,msg})
+}
 
 
-
-  return <GithubContext.Provider value={{githubUser,githubfFollowers,repos, request}}>{children}</GithubContext.Provider>;
+  return <GithubContext.Provider value={{githubUser,githubfFollowers,repos, request, err}}>{children}</GithubContext.Provider>;
 };
 
 export { GithubProvider, GithubContext };
