@@ -46,8 +46,8 @@ export default function Info() {
 
 
   return (
-    <section className='container  m-auto px-20'>
-      <div className='flex justify-between w-full items-center '>
+    <section className='content'>
+      <div className='flex justify-between w-full items-center mb-10'>
         {items.map((item) => {
           return <Item key={shortid()} {...item}></Item>;
         })}
@@ -58,7 +58,7 @@ export default function Info() {
 
 const Item = ({ icon, label, value, color }) => {
   return (
-    <article className='item bg-white rounded p-4 flex items-center justify-around text-center w-1/4 mx-4' >
+    <article className='item bg-white rounded p-4 flex items-center justify-around text-center w-1/4 mr-4' >
       <span className={`rounded-3xl text-2xl p-3 ${color}`}>{icon}</span>
       <div>
         <h3 className=

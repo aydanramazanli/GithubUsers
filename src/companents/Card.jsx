@@ -18,10 +18,10 @@ export default function Card() {
 
 
   return (
-    <div className="w-1/2  bg-white  p-6 rounded mx-5 relative">
+    <div className="bg-white  p-6 rounded  relative" style={{width:"48%"}}>
       <div className="user absolute bg-white user left-0 py-2 px-4 rounded"  >
         <h3 className="text-slate-500 font-light">User</h3></div>
-      <header className="flex justify-between items-center">
+      <header className="flex justify-between  items-center">
         <div className="flex items-center">
           <img src={avatar_url} alt={name} className="w-20 h-20 rounded-3xl" />
           <div className="mx-5">
