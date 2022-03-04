@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { GithubContext } from "../context/Context";
 import Charts from './charts/Charts'
 import Pie from './charts/Pie'
+import Dougnut from './charts/Dougnut'
+import Spline from './charts/Spline'
 
 export default function Repos() {
 const {repos}= useContext(GithubContext)
@@ -23,36 +25,49 @@ languages = Object.values(languages).sort((a,b)=>{
 }).slice(0,5)
 
 
+const mostUsed = Object.values(languages)
+.sort((a, b) => {
+  return b.value - a.value;
+})
+.slice(0, 5);
 
-console.log(languages)
+const mostPopular = Object.values(languages)
+.sort((a, b) => {
+  return b.stars - a.stars;
+})
+.map((item) => {
+  return { ...item, value: item.stars };
+})
+.slice(0, 5)
 
+ console.log(repos)
 
+let { stars, forks } = repos.reduce(
+  (total, item) => {
+    const { stargazers_count, name, forks } = item;
+    total.stars[stargazers_count] = { label: name, value: stargazers_count };
+    total.forks[forks] = { label: name, value: forks };
+    return total;
+  },
+  {
+    stars: {},
+    forks: {},
+  }
+);
 
+stars = Object.values(stars).slice(-5).reverse();
+forks = Object.values(forks).slice(-5).reverse();
 
-  const chartData = [
-    {
-      label: "Html",
-      value: "20"
-    },
-    {
-      label: "Css",
-      value: "40"
-    },
-   
-    {
-      label: "Javascript",
-      value: "60"
-    }
-  ];
   return (
     <div className=" content   relative ">
       <div className="my-10 flex items-center justify-between">
-      <Pie data ={languages}/>
-      <Charts  data ={chartData}/>
+      <Pie data ={mostUsed}/>
+      <Charts  data ={stars}/>
       </div>
       <div className="my-10 flex items-center justify-between">
-      <Pie data ={chartData}/>
-      <Charts  data ={chartData}/>
+      <Spline  data ={mostPopular}/>
+      <Dougnut data ={forks}/>
+     
       </div>
     
     </div>

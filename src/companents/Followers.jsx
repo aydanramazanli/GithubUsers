@@ -5,7 +5,7 @@ export default function Followers() {
   const {githubfFollowers} = useContext(GithubContext)
   return (
     <div className=" mb-6" style={{width:"48%"}}>
-        <div className="follow bg-white user  py-2 px-4 rounded w-28"  >
+        <div className="follow bg-white  py-2 px-4 rounded w-28"  >
         <h3 className="text-slate-500 font-light">Followers</h3></div>
         <div className="bg-white followers  p-6 rounded ">
       

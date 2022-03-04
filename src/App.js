@@ -14,7 +14,7 @@ import Main from './pages/Main'
 function App() {
   return (
    <Router>
-     <div className="bg-slate-100">
+
      <Switch>
        <Route path="/" exact>
          <Main/>
@@ -26,7 +26,7 @@ function App() {
          <Error/>
        </Route>
      </Switch>
-     </div>
+  
    </Router>
   );
 }
