@@ -22,19 +22,20 @@ class SDK{
         }
     }
 
-    async getFollowers(){
+    async getFollowers(name){
         try{
-            const req = await this.instance.get(`/users/aydansamedova/followers`)
-            return req.data
+            const req = await this.instance.get(`/users/${name}/followers`)
+            const datas = req.data
+            return datas
         }
         catch(error){
             console.log(error)
         }
     }
 
-    async getRepos(){
+    async getRepos(name){
         try{
-            const req = await this.instance.get(`/users/aydansamedova/repos`)
+            const req = await this.instance.get(`/users/${name}/repos`)
             return req.data
         }
         catch(error){

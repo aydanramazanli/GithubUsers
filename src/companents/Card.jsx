@@ -18,7 +18,7 @@ export default function Card() {
 
 
   return (
-    <div className="bg-white  p-6 rounded  relative" style={{width:"48%"}}>
+    <div className="bg-white  p-6 rounded  relative" style={{width:"49%"}}>
       <div className="user absolute bg-white user left-0 py-2 px-4 rounded"  >
         <h3 className="text-slate-500 font-light">User</h3></div>
       <header className="flex justify-between  items-center">
