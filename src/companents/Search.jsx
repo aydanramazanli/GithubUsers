@@ -37,7 +37,7 @@ export default function Search() {
             />
             {request > 0 && !isloading && (
               <button
-                className="bg-cyan-700 hover:bg-cyan-200 duration-200 text-white hover:text-cyan-700 font-semibold py-1.5 px-3 rounded"
+                className="bg-cyan-700 hover:bg-cyan-600 duration-200 text-white  font-semibold py-1.5 px-3 rounded"
                 type="submit"
               >
                 Search

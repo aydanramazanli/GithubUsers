@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GithubContext } from "../context/Context";
 import { MdBusiness, MdLocationOn, MdLink } from "react-icons/md";
+import { motion } from "framer-motion"
 
 export default function Card() {
   const { githubUser } = useContext(GithubContext);
@@ -17,8 +18,9 @@ export default function Card() {
 
 
 
+
   return (
-    <div className="bg-white  p-6 rounded  relative" style={{width:"49%"}}>
+    <motion.div className="bg-white  p-6 rounded  relative" style={{width:"49%"}} initial={{x:-100}} animate={{x:0}} transition={{delay:0.5 }}>
       <div className="user absolute bg-white user left-0 py-2 px-4 rounded"  >
         <h3 className="text-slate-500 font-light">User</h3></div>
       <header className="flex justify-between  items-center">
@@ -46,5 +48,5 @@ export default function Card() {
           {blog}
         </a>
       </main>
-    </div>
+    </motion.div>
   )}

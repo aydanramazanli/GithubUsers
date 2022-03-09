@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {Link} from 'react-router-dom'
 
 export default function Navbar() {
-  const {user, isAuthenticated, loginWithRedirect, logout}= useAuth0()
+  const {user, isAuthenticated, logout}= useAuth0()
   const isUser = isAuthenticated && user 
   return (
     <div className="content bg-white px-2 py-4">
