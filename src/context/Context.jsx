@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import SDK from "./Sdk";
+
 import axios from "axios";
 //companents
 import FollowersData from "./datas/FollowersData";
@@ -9,7 +9,7 @@ import ReposData from "./datas/ReposData";
 const GithubContext = createContext();
 
 const GithubProvider = ({ children }) => {
-  const sdk = new SDK();
+
   const [githubUser, setgithubUser] = useState(UserData);
   const [githubfFollowers, setgithubfFollowers] = useState(FollowersData);
   const [repos, setRepos] = useState(ReposData);
